@@ -21,7 +21,11 @@ class Taxonomy_Meta {
 	}
 
 	/**
+	 * Add default quantity meta fields on the product category add new page.
+	 *
+	 *
 	 * @return void
+	 * @since 1.0.0
 	*/
 	public function add_default_quantity_fields() {
 		?>
@@ -33,6 +37,14 @@ class Taxonomy_Meta {
 		<?php
 	}
 
+	/**
+	 * Add default quantity on the product category edit page.
+	 *
+	 * @param WP_Term $term Product category.
+	 *
+	 * @return void
+	 * @since 1.0.0
+	*/
 	public function edit_default_quantity_fields( $term ) {
 		$get_default_quantity = get_term_meta( $term->term_id, 'product_default_quantity', true );
 		?>
@@ -47,11 +59,14 @@ class Taxonomy_Meta {
 	}
 
 	/**
-	 * Save category fields
+	 * Save category fields.
 	 *
 	 * @param mixed  $term_id Term ID being saved.
 	 * @param mixed  $tt_id Term taxonomy ID.
 	 * @param string $taxonomy Taxonomy slug.
+	 *
+	 * @return void
+	 * @since 1.0.0
 	 */
 	public function save_category_fields( $term_id, $tt_id = '', $taxonomy = '' ) {
 		if ( isset( $_POST['_category_default_quantity'] ) && 'product_cat' === $taxonomy ) { // WPCS: CSRF ok, input var ok.
@@ -59,11 +74,29 @@ class Taxonomy_Meta {
 		}
 	}
 
+	/**
+	 * Add custom column on the product category list table.
+	 *
+	 * @param array $columns list table columns.
+	 *
+	 * @return array
+	 * @since 1.0.0
+	*/
 	public function add_custom_columns_on_product_category_table( $columns ) {
 		$columns['default_quantity'] = __( 'Default Quantity', 'woocommerce-product-default-quantity' );
 		return $columns;
 	}
 
+	/**
+	 * Populate custom column with data.
+	 *
+	 * @param string $content Column content.
+	 * @param string $column_name Column name.
+	 * @param int $term_id Term id.
+	 *
+	 * @return string
+	 * @since 1.0.0
+	*/
 	public function manage_custom_columns_content( $content, $column_name, $term_id ) {
 		switch ( $column_name ) {
 			case 'default_quantity':
