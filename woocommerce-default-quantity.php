@@ -255,6 +255,7 @@ class Default_Product_Quantity {
 		//
 		if ( is_admin() ) {
 			require_once dirname( __FILE__ ) . '/includes/admin/class-admin_settings.php';
+			require_once dirname( __FILE__ ) . '/includes/admin/class-product_meta.php';
 		}
 		do_action( 'default_product_quantity__loaded' );
 	}
