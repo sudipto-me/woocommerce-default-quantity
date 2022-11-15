@@ -1,0 +1,105 @@
+# Copyright (C) 2022 shakhari
+# This file is distributed under the GPLv2+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Default Product Quantity for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/woocommerce-default-quantity\n"
+"POT-Creation-Date: 2022-11-15 05:21:20+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: includes/admin/class-admin_settings.php:27
+#: includes/admin/class-admin_settings.php:48
+#: includes/admin/class-taxonomy_meta.php:86
+msgid "Default Quantity"
+msgstr ""
+
+#: includes/admin/class-admin_settings.php:54
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/admin/class-admin_settings.php:56
+msgid "Enable this options to affect default quantity for products"
+msgstr ""
+
+#: includes/admin/class-admin_settings.php:61
+msgid "Apply default quantity"
+msgstr ""
+
+#: includes/admin/class-admin_settings.php:62
+msgid "Apply default quantity on product single page"
+msgstr ""
+
+#: includes/admin/class-admin_settings.php:69
+msgid "Apply default quantity on shop page"
+msgstr ""
+
+#: includes/admin/class-admin_settings.php:76
+msgid "Apply default quantity on archive/category page"
+msgstr ""
+
+#: includes/admin/class-admin_settings.php:83
+#: includes/admin/class-product_meta.php:34
+#: includes/admin/class-product_meta.php:87
+msgid "Product default quantity"
+msgstr ""
+
+#: includes/admin/class-admin_settings.php:84
+msgid "Default quantity"
+msgstr ""
+
+#: includes/admin/class-product_meta.php:35
+msgid ""
+"Set an allowed default quantity of items customers can purchase for this "
+"products"
+msgstr ""
+
+#: includes/admin/class-product_meta.php:88
+msgid ""
+"Set an allowed default quantity of items customers can purchase for this "
+"variation"
+msgstr ""
+
+#: includes/admin/class-taxonomy_meta.php:33
+#: includes/admin/class-taxonomy_meta.php:52
+msgid "Default Quantity for this category"
+msgstr ""
+
+#: woocommerce-default-quantity.php:134
+msgid ""
+"<strong>Default Product Quantity for WooCommerce</strong> requires "
+"<strong>WooCommerce</strong> installed and activated. Please Install %1$s "
+"WooCommerce. %2$s"
+msgstr ""
+
+#: woocommerce-default-quantity.php:169 woocommerce-default-quantity.php:180
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Default Product Quantity for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/sudipto-me/woocommerce-product-default-quantity"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"The best WooCommerce Plugin to set default quantity for products rather "
+"than 1."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "shakhari"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://shakahri.cc"
+msgstr ""
