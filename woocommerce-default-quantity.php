@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Default Product Quantity for WooCommerce
  * Plugin URI:  https://github.com/sudipto-me/woocommerce-product-default-quantity
@@ -15,14 +16,15 @@
  */
 
 // don't call the file directly
-defined( 'ABSPATH' ) || exit();
+defined('ABSPATH') || exit();
 
 /**
  * Default_Product_Quantity class.
  *
  * @class Default_Product_Quantity contains everything for the plugin.
  */
-class Default_Product_Quantity {
+class Default_Product_Quantity
+{
 	/**
 	 * Default_Product_Quantity version.
 	 *
@@ -49,8 +51,9 @@ class Default_Product_Quantity {
 	 * @since 1.0.0
 	 * @static var array $instance
 	 */
-	public static function init() {
-		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Default_Product_Quantity ) ) {
+	public static function init()
+	{
+		if (!isset(self::$instance) && !(self::$instance instanceof Default_Product_Quantity)) {
 			self::$instance = new self();
 		}
 
@@ -65,7 +68,8 @@ class Default_Product_Quantity {
 	 * @since 1.0.0
 	 * @access public
 	 **/
-	public function get_version() {
+	public function get_version()
+	{
 		return $this->version;
 	}
 
@@ -75,8 +79,9 @@ class Default_Product_Quantity {
 	 * @return string
 	 * @since 1.0.0
 	 */
-	public function plugin_url() {
-		return untrailingslashit( plugins_url( '/', __FILE__ ) );
+	public function plugin_url()
+	{
+		return untrailingslashit(plugins_url('/', __FILE__));
 	}
 
 	/**
@@ -85,8 +90,9 @@ class Default_Product_Quantity {
 	 * @return string
 	 * @since 1.0.0
 	 */
-	public function plugin_path() {
-		return untrailingslashit( plugin_dir_path( __FILE__ ) );
+	public function plugin_path()
+	{
+		return untrailingslashit(plugin_dir_path(__FILE__));
 	}
 
 	/**
@@ -95,8 +101,9 @@ class Default_Product_Quantity {
 	 * @return string
 	 * @since 1.0.0
 	 */
-	public function plugin_basename() {
-		return plugin_basename( __FILE__ );
+	public function plugin_basename()
+	{
+		return plugin_basename(__FILE__);
 	}
 
 	/**
@@ -106,8 +113,9 @@ class Default_Product_Quantity {
 	 * @since 1.0.0
 	 *
 	 */
-	public function localization_setup() {
-		load_plugin_textdomain( 'woocommerce-product-default-quantity', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages' );
+	public function localization_setup()
+	{
+		load_plugin_textdomain('woocommerce-product-default-quantity', false, plugin_basename(dirname(__FILE__)) . '/i18n/languages');
 	}
 
 
@@ -118,29 +126,31 @@ class Default_Product_Quantity {
 	 * @since 1.0.0
 	 *
 	 */
-	public function is_wc_active() {
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	public function is_wc_active()
+	{
+		include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
-		return is_plugin_active( 'woocommerce/woocommerce.php' ) == true;
+		return is_plugin_active('woocommerce/woocommerce.php') == true;
 	}
 
 	/**
 	 * WooCommerce plugin dependency notice
 	 * @since 1.0.0
 	 */
-	public function wc_missing_notice() {
-		if ( ! $this->is_wc_active() ) {
+	public function wc_missing_notice()
+	{
+		if (!$this->is_wc_active()) {
 			$message = sprintf(
-				__( '<strong>Default Product Quantity for WooCommerce</strong> requires <strong>WooCommerce</strong> installed and activated. Please Install %1$s WooCommerce. %2$s', 'woocommerce-product-default-quantity' ),
+				__('<strong>Default Product Quantity for WooCommerce</strong> requires <strong>WooCommerce</strong> installed and activated. Please Install %1$s WooCommerce. %2$s', 'woocommerce-product-default-quantity'),
 				'<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">',
 				'</a>'
 			);
-			echo sprintf( '<div class="notice notice-error"><p>%s</p></div>', $message );
+			echo sprintf('<div class="notice notice-error"><p>%s</p></div>', $message);
 		}
 	}
 
 	/**
-	 * Define constant if not already defined
+	 * Define constant if not already defined.
 	 *
 	 * @param string $name
 	 * @param string|bool $value
@@ -149,9 +159,10 @@ class Default_Product_Quantity {
 	 * @since 1.0.0
 	 *
 	 */
-	private function define( $name, $value ) {
-		if ( ! defined( $name ) ) {
-			define( $name, $value );
+	private function define($name, $value)
+	{
+		if (!defined($name)) {
+			define($name, $value);
 		}
 	}
 
@@ -165,8 +176,9 @@ class Default_Product_Quantity {
 	 * @return void
 	 */
 
-	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woocommerce-product-default-quantity' ), '1.0.0' );
+	public function __clone()
+	{
+		_doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'woocommerce-product-default-quantity'), '1.0.0');
 	}
 
 	/**
@@ -176,20 +188,22 @@ class Default_Product_Quantity {
 	 * @return void
 	 */
 
-	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woocommerce-product-default-quantity' ), '1.0.0' );
+	public function __wakeup()
+	{
+		_doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'woocommerce-product-default-quantity'), '1.0.0');
 	}
 
 	/**
 	 * Default_Product_Quantity constructor.
 	 */
-	private function __construct() {
+	private function __construct()
+	{
 		$this->define_constants();
-		register_activation_hook( __FILE__, array( $this, 'activate_plugin' ) );
-		register_deactivation_hook( __FILE__, array( $this, 'deactivate_plugin' ) );
+		register_activation_hook(__FILE__, array($this, 'activate_plugin'));
+		register_deactivation_hook(__FILE__, array($this, 'deactivate_plugin'));
 
-		add_action( 'woocommerce_loaded', array( $this, 'init_plugin' ) );
-		add_action( 'admin_notices', array( $this, 'wc_missing_notice' ) );
+		add_action('woocommerce_loaded', array($this, 'init_plugin'));
+		add_action('admin_notices', array($this, 'wc_missing_notice'));
 	}
 
 	/**
@@ -197,11 +211,12 @@ class Default_Product_Quantity {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	public function define_constants() {
-		$this->define( 'DEFAULT_PRODUCT_QUANTITY_PLUGIN_VERSION', $this->version );
-		$this->define( 'DEFAULT_PRODUCT_QUANTITY_PLUGIN_FILE', __FILE__ );
-		$this->define( 'DEFAULT_PRODUCT_QUANTITY_PLUGIN_DIR', dirname( __FILE__ ) );
-		$this->define( 'DEFAULT_PRODUCT_QUANTITY_PLUGIN_INC_DIR', dirname( __FILE__ ) . '/includes' );
+	public function define_constants()
+	{
+		$this->define('DEFAULT_PRODUCT_QUANTITY_PLUGIN_VERSION', $this->version);
+		$this->define('DEFAULT_PRODUCT_QUANTITY_PLUGIN_FILE', __FILE__);
+		$this->define('DEFAULT_PRODUCT_QUANTITY_PLUGIN_DIR', dirname(__FILE__));
+		$this->define('DEFAULT_PRODUCT_QUANTITY_PLUGIN_INC_DIR', dirname(__FILE__) . '/includes');
 	}
 
 	/**
@@ -210,7 +225,8 @@ class Default_Product_Quantity {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	public function activate_plugin() {
+	public function activate_plugin()
+	{
 		//require_once dirname( __FILE__ ) . '/includes/class-installer.php';
 		//Default_Product_Quantity_Installer::install();
 	}
@@ -221,8 +237,8 @@ class Default_Product_Quantity {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	public function deactivate_plugin() {
-
+	public function deactivate_plugin()
+	{
 	}
 
 	/**
@@ -231,7 +247,8 @@ class Default_Product_Quantity {
 	 * @return void
 	 * @since 1.0.0
 	 */
-	public function init_plugin() {
+	public function init_plugin()
+	{
 		$this->includes();
 		$this->init_hooks();
 	}
@@ -241,25 +258,15 @@ class Default_Product_Quantity {
 	 * Include required core files used in admin and on the frontend.
 	 * @since 1.0.0
 	 */
-	public function includes() {
-		//        require_once dirname( __FILE__ ) . '/includes/woocommerce-product-default-quantity-functions.php';
-		//        require_once dirname( __FILE__ ) . '/includes/woocommerce-product-default-quantity-misc-functions.php';
-		//        require_once dirname( __FILE__ ) . '/includes/class-woocommerce-product-default-quantity-query.php';
-		//        require_once dirname( __FILE__ ) . '/includes/class-woocommerce-product-default-quantity-installer.php';
-		//        require_once dirname( __FILE__ ) . '/includes/class-woocommerce-product-default-quantity-order-handler.php';
-		//        require_once dirname( __FILE__ ) . '/includes/class-woocommerce-product-default-quantity-encryption.php';
-		//        require_once dirname( __FILE__ ) . '/includes/class-woocommerce-product-default-quantity-ajax.php';
-		//        require_once dirname( __FILE__ ) . '/includes/class-woocommerce-product-default-quantity-api.php';
-		//        require_once dirname( __FILE__ ) . '/includes/class-woocommerce-product-default-quantity-cron.php';
-		//        require_once dirname( __FILE__ ) . '/includes/class-woocommerce-product-default-quantity-compat.php';
-		//
-		if ( is_admin() ) {
-			require_once dirname( __FILE__ ) . '/includes/admin/class-admin_settings.php';
-			require_once dirname( __FILE__ ) . '/includes/admin/class-taxonomy_meta.php';
-			require_once dirname( __FILE__ ) . '/includes/admin/class-product_meta.php';
-
+	public function includes()
+	{
+		if (is_admin()) {
+			require_once dirname(__FILE__) . '/includes/admin/class-admin_settings.php';
+			require_once dirname(__FILE__) . '/includes/admin/class-taxonomy_meta.php';
+			require_once dirname(__FILE__) . '/includes/admin/class-product_meta.php';
 		}
-		do_action( 'default_product_quantity__loaded' );
+		require_once dirname(__FILE__) . '/includes/frontend/class-wc-hooks.php';
+		do_action('default_product_quantity__loaded');
 	}
 
 
@@ -268,8 +275,9 @@ class Default_Product_Quantity {
 	 *
 	 * @since 1.0.0
 	 */
-	private function init_hooks() {
-		add_action( 'plugins_loaded', array( $this, 'localization_setup' ) );
+	private function init_hooks()
+	{
+		add_action('plugins_loaded', array($this, 'localization_setup'));
 		//add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ), - 1 );
 	}
 
@@ -282,10 +290,10 @@ class Default_Product_Quantity {
 	 *
 	 * @since 1.0.0
 	 */
-	public function on_plugins_loaded() {
-		do_action( 'default_product_quantity__loaded' );
+	public function on_plugins_loaded()
+	{
+		do_action('default_product_quantity__loaded');
 	}
-
 }
 
 /**
@@ -298,7 +306,8 @@ class Default_Product_Quantity {
  * @return Default_Product_Quantity
  * @since 1.0.0
  */
-function default_product_quantity() {
+function default_product_quantity()
+{
 	return Default_Product_Quantity::init();
 }
 
